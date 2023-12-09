@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Generic, TypeVar, Iterable, Iterator
+from typing import Tuple, Generic, TypeVar, Iterable, Iterator
 from dataclasses import is_dataclass
 from collections import OrderedDict
 from struct import Struct
@@ -62,7 +62,7 @@ class Parser(Generic[T]):
 
         return self
 
-    def build(self, array: bytes) -> Tuple[T | None, bytes]:
+    def parse(self, array: bytes) -> Tuple[T | None, bytes]:
         """Constructs the class T from the binary data collected in the internal buffer.
 
         Returns:
