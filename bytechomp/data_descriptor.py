@@ -49,7 +49,8 @@ def build_data_description(
             )
         elif inspect.isclass(field.type) and is_dataclass(field.type):
             if field.default != MISSING:
-                raise Exception(f"cannot have default value on nested types (field: {field.name})")
+                pass
+                #raise Exception(f"cannot have default value on nested types (field: {field.name})")
             object_description[field.name] = build_data_description(field.type)
         elif get_origin(field.type) == Annotated:
             args = get_args(field.type)
