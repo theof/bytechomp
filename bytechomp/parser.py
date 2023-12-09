@@ -71,7 +71,7 @@ class Parser(Generic[T]):
             bytes: extra bytes unused to build the struct
         """
         if len(array) < self.__struct.size:
-            return None
+            return None, array
         #XXX: This creates copies of the bytes object
         struct_bytes = array[: self.__struct.size]
         extra_bytes = array[self.__struct.size :]
