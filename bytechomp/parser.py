@@ -78,3 +78,7 @@ class Parser(Generic[T]):
         return build_structure(
             list(self.__struct.unpack(struct_bytes)), self.__data_description
         ), extra_bytes 
+
+    @property
+    def min_data_size(self) -> int:
+        return self.__struct.size
